@@ -22,8 +22,8 @@ Try opening both in your browser
 var file;
 //I've but a default in so you can submit a card wihtout having to upload a file first
 var uploadedFileUrl="http://files.parsetfss.com/a830439b-7aa4-4898-b70b-8a9a5ef07a84/tfss-0c12a959-14cc-40ce-a3c0-f41c9782851f-yellow.jpg";
-var appID="Yh9fuRIjw3JLhbaSM3e5P2LOEEVpb83IJHeQLqZ8";
-var RESTAPIKey="8K7dx2fCRdd1y3H2rifhKqDkg8E1e7xRhwv6jkCF";
+var appID="";
+var RESTAPIKey="";
 
 
 $(function() {
