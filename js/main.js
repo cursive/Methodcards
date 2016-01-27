@@ -19,11 +19,13 @@ Try opening both in your browser
 
 
 
-var file;
-//I've but a default in so you can submit a card wihtout having to upload a file first
-var uploadedFileUrl="http://files.parsetfss.com/a830439b-7aa4-4898-b70b-8a9a5ef07a84/tfss-0c12a959-14cc-40ce-a3c0-f41c9782851f-yellow.jpg";
-var appID="";
-var RESTAPIKey="";
+var file="http://files.parsetfss.com/a830439b-7aa4-4898-b70b-8a9a5ef07a84/tfss-0c12a959-14cc-40ce-a3c0-f41c9782851f-yellow.jpg";
+//I've but a this so you can submit a card wihtout having to upload a file first
+var uploadedFileUrl={};
+uploadedFileUrl.name="tfss-9a49a45a-da5a-401a-b0c7-c25b215f25db-yellow.jpg"
+uploadedFileUrl.url="http://files.parsetfss.com/a830439b-7aa4-4898-b70b-8a9a5ef07a84/tfss-9a49a45a-da5a-401a-b0c7-c25b215f25db-yellow.jpg";
+
+
 
 
 $(function() {
@@ -33,14 +35,16 @@ $(function() {
     //Get list of cateogries then attributes and popoulate the UI
     getCategories();
 
-    $('#submitCard').click(function(){
-        newCard()
+    $('#submitCard').click(function(e){
+        e.preventDefault();
+        newCard();
     });
     $('#image').bind("change", function(e) {
       var files = e.target.files || e.dataTransfer.files;
       file = files[0];
-    });
-    $('#uploadButton').click(function() {
+  });
+    $('#uploadButton').click(function(e) {
+        e.preventDefault();
         uploadFile()
     })
 
@@ -116,8 +120,8 @@ function uploadFile(){
       contentType: false,
       success: function(data) {
         console.log(data)
-        uploadedFileUrl=data.url;
-        console.log("File available at: " + uploadedFileUrl);
+        uploadedFileUrl=data;
+        console.log("File available at: " + uploadedFileUrl.url);
     },
     error: function(data) {
       var obj = jQuery.parseJSON(data);
@@ -132,8 +136,12 @@ function uploadFile(){
 
 
 function newCard(){
-
     console.log("newCard()")
+    var allVals = [];
+    $('#attributes :checked').each(function() {
+     allVals.push($(this).val());
+     console.log($(this).val())
+ });
     $.parse.post('Card', { 
         title: $("#title","#cardForm").val(),
         description: $("#description","#cardForm").val(),
@@ -144,13 +152,14 @@ function newCard(){
             "objectId":$("#category","#cardForm").val()
         },
         image: {
-            "__type": "File",
-            "name": uploadedFileUrl  
-        }
+           "__type": "File",
+           "name": uploadedFileUrl.name,
+           "url": uploadedFileUrl.url
+       }
 
-    }, function(json) { 
-        console.log("Card Created",json);
-    });
+   }, function(json) { 
+    console.log("Card Created",json);
+});
 }
 
 /*
