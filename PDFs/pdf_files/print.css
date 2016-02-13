@@ -1,0 +1,44 @@
+@media print {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  @page {
+    size: 14.8cm 10.5cm;
+    marks: cross crop;
+}
+
+  /* line 8, ../scss/print.scss */
+  .blue {
+    color: cmyk(72, 2, 18, 0);
+  }
+
+  /* line 11, ../scss/print.scss */
+  .card {
+    page-break-before: always;
+  }
+  /* line 13, ../scss/print.scss */
+  .card.image {
+    background-color: red;
+  }
+  /* line 15, ../scss/print.scss */
+  .card.image img {
+    image-resolution: from-image;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 14.8cm;
+    height: 10.5cm;
+  }
+  /* line 23, ../scss/print.scss */
+  .card.image h4 {
+    position: absolute;
+    top: 0.4cm;
+    left: 2.76cm;
+    font-size: 18pt;
+  }
+  /* line 29, ../scss/print.scss */
+  .card.image h3 {
+    position: absolute;
+    top: 0.4cm;
+    left: 0.4cm;
+    font-size: 6pt;
+  }
+}

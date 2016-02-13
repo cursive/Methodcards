@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<!-- saved from url=(0032)http://127.0.0.1:8080/print.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>All</title>
+	<link href="./pdf_files/print.css" rel="stylesheet" media="print">
+<style type="text/css"></style></head>
+<body>
+	<script src="./pdf_files/jquery-2.2.0.min.js"></script>
+	<script src="./pdf_files/jquery.parse.js"></script>
+	<script src="./pdf_files/underscore.js"></script>
+	<script src="./pdf_files/auth.js"></script>
+	<script src="./pdf_files/print.js"></script>
+	<script type="text/template" id="card-template">
+		
+		<div class="card image">	
+			<img src="<%= image.url %>">
+			<h4 class="blue"><%= category.title %></h4>
+			<h3 class="blue"><%= title %></h3>
+		</div>
+		<div class="card content">
+			<h3><%= title %></h3>
+			<p><%= description %></p>
+			<% goals=goals.replace(/\n/g,"</li><li>") %>
+			<ul class="goals"><li><%= goals %></li></ul>
+			<h4 class="green"><%= category.title %></h4>
+			<ul class="tags">
+				<% _.each(tags,function(counter){ %>
+					<li><%= counter.title %></li>
+					<%});%>
+			</ul>
+		</div>
+
+	</script>
+
+
+
+
+		
+		<div class="card image">	
+			<img src="./pdf_files/tfss-6b615928-f531-49cc-8b1b-e297899ba03e-brandbook.jpg">
+			<h4 class="blue">Define</h4>
+			<h3 class="blue">Brand Book</h3>
+		</div>
+		<div class="card content">
+			<h3>Brand Book</h3>
+			<p>An artefact that communicates the story of a brand, and acts as a rallying cry for the adoption of the spirit of the brand by everyone.</p>
+			
+			<ul class="goals"><li>To explain the story behind a brand, where it’s come from and where it’s going.</li><li>To guide and inspire the creation of new products and services.</li></ul>
+			<h4 class="green">Define</h4>
+			<ul class="tags">
+				
+					<li>Narrative</li>
+					
+					<li>Connect</li>
+					
+			</ul>
+		</div>
+
+	
+		
+		<div class="card image">	
+			<img src="./pdf_files/tfss-39146a9f-9abd-431b-9268-ea5e11848e84-roleplay.jpg">
+			<h4 class="blue">Define</h4>
+			<h3 class="blue">Roleplay</h3>
+		</div>
+		<div class="card content">
+			<h3>Roleplay</h3>
+			<p>Adopting the role of actors  in a service experience, the  participants enact a situation  or series of interactions.</p>
+			
+			<ul class="goals"><li>To empathise with real-life users</li><li>To identify problems.</li><li>To get ideas.</li></ul>
+			<h4 class="green">Define</h4>
+			<ul class="tags">
+				
+					<li>Research</li>
+					
+					<li>Co-create</li>
+					
+					<li>Test</li>
+					
+			</ul>
+		</div>
+
+	
+		
+		<div class="card image">	
+			<img src="./pdf_files/tfss-45f8632d-cff2-4b7d-a752-44d193a3c890-userjourney.jpg">
+			<h4 class="blue">Make</h4>
+			<h3 class="blue">User Journey</h3>
+		</div>
+		<div class="card content">
+			<h3>User Journey</h3>
+			<p>An illustration (sketch,  wireframe or visual design)  of a series of steps  representing a user’s  journey through a product  as they complete a task.</p>
+			
+			<ul class="goals"><li>As a design tool, to work through  product experience, logic and  interaction model.</li><li>To show a proposal to stakeholders,  to make a decision, or to validate</li><li>with customers.</li><li>To document functionality, for  communication with developers.</li><li></li></ul>
+			<h4 class="green">Make</h4>
+			<ul class="tags">
+				
+					<li>Imagine</li>
+					
+					<li>Prototype</li>
+					
+					<li>Craft</li>
+					
+			</ul>
+		</div>
+
+	</body></html>

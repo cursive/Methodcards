@@ -4,10 +4,11 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Method Methods</title>
+	<title>MM Create</title>
 	<link href="css/bootstrap.css" rel="stylesheet">
 	<link href="css/bootstrap-theme.css" rel="stylesheet">
 	<link href="css/styles.css" rel="stylesheet">
+	<link href="css/print.css" rel="stylesheet" media="print">
 </head>
 <body>
 	<div class="container">
@@ -33,15 +34,20 @@
 						<select class="form-control" id="category"></select>
 					</div>
 					<div class="form-group">
-						<label for="attributes">Attributes</label>
-						<div class="checkbox" id="attributes"></div>
+						<label for="tags">Tags</label>
+						<div class="checkbox" id="tags"></div>
 					</div>
 					<div class="form-group">
 						<label for="image">Photo</label>
 						<input type="file" id="image">
-								<button type="submit" class="btn btn-default btn-s" id="uploadButton">Upload</button>
+						<button type="submit" class="btn btn-default btn-s" id="uploadButton">Upload</button>
 					</div>
 					<hr>
+					<div class="form-group">
+						<label for="image">Example</label>
+						<input type="file" id="example">
+						<button type="submit" class="btn btn-default btn-s" id="uploadExampleButton">Upload</button>
+					</div>
 					<div class="form-group">
 
 						<button type="submit" class="btn btn-default" id="submitCard">Submit</button>
@@ -56,6 +62,7 @@
 	<script src="js/libs/jquery.parse.js"></script>
 	<script src="js/libs/bootstrap.min.js"></script>
 	<script src="js/libs/underscore.js"></script>
+	<script src="js/libs/dropzone.js"></script>
 	<script src="js/auth.js"></script>
 	<script src="js/main.js"></script>
 </body>

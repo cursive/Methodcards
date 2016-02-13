@@ -1,0 +1,80 @@
+@media screen {
+	body {
+		background-color: #efefef;
+		font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+		padding-bottom: 100px;
+	}
+	.green {
+		color: #99cc49;
+	}
+	.card {
+		width: 1280px;
+		height: 720px;
+		background-color: white;
+		.content {
+			box-sizing: border-box;
+			width: 460px;
+			padding-top: 35px;
+			padding-left: 25px;
+			float: left;
+			h3 {
+				font-size: 40px;
+				margin-top: 0;
+				margin-bottom: 50px;
+				font-weight: normal;
+			}
+			h4 {
+				font-size: 24px;
+				margin-top: 0;
+				margin-bottom: 14px;
+				font-weight: 500;
+				position: absolute;
+				bottom: 20px;
+			}
+			h5 {
+				font-size: 16px;
+				margin-top: 0;
+				margin-bottom: 0px;
+				font-weight: bold;
+				font-weight: 500;
+			}
+			p {
+				font-size: 30px;
+				margin-top: 0;
+				padding-right: 80px;
+				font-weight: lighter;
+			}
+			.goals {
+				margin-top: 34px;
+				padding-right: 20px;
+				li {
+					color: #898581;
+					font-style: italic;
+					font-weight: 500;
+					font-size: 20px;
+				}
+			}
+		}
+		.image {
+			width: 820px;
+			float: left;
+			img {
+				width: 820px;
+				height: 640px;
+			}
+			.tags {
+				padding-left: 20px;
+				padding-top: 10px;
+				li {
+					font-weight: 500;
+					font-size: 14px;
+					list-style: none;
+					display: inline;
+					color: #797570;
+					margin-right: 50px;
+					text-transform: uppercase;
+				}
+			}
+		}
+	}
+}
