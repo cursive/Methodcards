@@ -11,7 +11,17 @@ uploadedExampleFileUrl.name="tfss-9a49a45a-da5a-401a-b0c7-c25b215f25db-yellow.jp
 uploadedExampleFileUrl.url="http://files.parsetfss.com/a830439b-7aa4-4898-b70b-8a9a5ef07a84/tfss-9a49a45a-da5a-401a-b0c7-c25b215f25db-yellow.jpg";
 
 
+
+
 $(function() {
+  var myDropzone = new Dropzone("#dropzone",
+    { url: "file-upload"}
+    );
+    myDropzone.on("addedfile", function(file) {
+    console.log("added",file, file.name)
+    exampleFile=file
+    uploadExample()
+  });
   console.log("init")
     //Authnetic using the jquery parse library
     _authenticate();

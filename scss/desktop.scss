@@ -7,6 +7,32 @@
 	.green {
 		color: #99cc49;
 	}
+	#cardForm {
+		.droptarget {
+			width: 100%;
+			background-color: #fff;
+			border-radius: 5px;
+			border: 1px solid #ddd;
+			padding: 12px;
+			color: #555;
+			box-shadow: 1px 1px 1px 0px rgba(0, 0, 0, 0.2);
+			&.dz-drag-hover {
+				border: 1px solid #99cc49;
+				color: #99cc49;
+				background-color: #eef4e5;
+			}
+			.dz-preview {
+				margin-top: 10px;
+				// float: left;
+				margin-right: 10px;
+			}
+			.dz-filename {
+				// width: 90px;
+				// overflow: hidden;
+		
+			}
+		}
+	}
 	.card {
 		width: 1280px;
 		height: 720px;

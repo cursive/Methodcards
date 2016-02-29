@@ -11,13 +11,35 @@
     color: #99cc49;
   }
 
-  /* line 10, ../scss/desktop.scss */
+  /* line 11, ../scss/desktop.scss */
+  #cardForm .droptarget {
+    width: 100%;
+    background-color: #fff;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    padding: 12px;
+    color: #555;
+    box-shadow: 1px 1px 1px 0px rgba(0, 0, 0, 0.2);
+  }
+  /* line 19, ../scss/desktop.scss */
+  #cardForm .droptarget.dz-drag-hover {
+    border: 1px solid #99cc49;
+    color: #99cc49;
+    background-color: #eef4e5;
+  }
+  /* line 24, ../scss/desktop.scss */
+  #cardForm .droptarget .dz-preview {
+    margin-top: 10px;
+    margin-right: 10px;
+  }
+
+  /* line 36, ../scss/desktop.scss */
   .card {
     width: 1280px;
     height: 720px;
     background-color: white;
   }
-  /* line 14, ../scss/desktop.scss */
+  /* line 40, ../scss/desktop.scss */
   .card .content {
     box-sizing: border-box;
     width: 460px;
@@ -25,14 +47,14 @@
     padding-left: 25px;
     float: left;
   }
-  /* line 20, ../scss/desktop.scss */
+  /* line 46, ../scss/desktop.scss */
   .card .content h3 {
     font-size: 40px;
     margin-top: 0;
     margin-bottom: 50px;
     font-weight: normal;
   }
-  /* line 26, ../scss/desktop.scss */
+  /* line 52, ../scss/desktop.scss */
   .card .content h4 {
     font-size: 24px;
     margin-top: 0;
@@ -41,7 +63,7 @@
     position: absolute;
     bottom: 20px;
   }
-  /* line 34, ../scss/desktop.scss */
+  /* line 60, ../scss/desktop.scss */
   .card .content h5 {
     font-size: 16px;
     margin-top: 0;
@@ -49,41 +71,41 @@
     font-weight: bold;
     font-weight: 500;
   }
-  /* line 41, ../scss/desktop.scss */
+  /* line 67, ../scss/desktop.scss */
   .card .content p {
     font-size: 30px;
     margin-top: 0;
     padding-right: 80px;
     font-weight: lighter;
   }
-  /* line 47, ../scss/desktop.scss */
+  /* line 73, ../scss/desktop.scss */
   .card .content .goals {
     margin-top: 34px;
     padding-right: 20px;
   }
-  /* line 50, ../scss/desktop.scss */
+  /* line 76, ../scss/desktop.scss */
   .card .content .goals li {
     color: #898581;
     font-style: italic;
     font-weight: 500;
     font-size: 20px;
   }
-  /* line 58, ../scss/desktop.scss */
+  /* line 84, ../scss/desktop.scss */
   .card .image {
     width: 820px;
     float: left;
   }
-  /* line 61, ../scss/desktop.scss */
+  /* line 87, ../scss/desktop.scss */
   .card .image img {
     width: 820px;
     height: 640px;
   }
-  /* line 65, ../scss/desktop.scss */
+  /* line 91, ../scss/desktop.scss */
   .card .image .tags {
     padding-left: 20px;
     padding-top: 10px;
   }
-  /* line 68, ../scss/desktop.scss */
+  /* line 94, ../scss/desktop.scss */
   .card .image .tags li {
     font-weight: 500;
     font-size: 14px;
