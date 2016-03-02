@@ -11,33 +11,64 @@
 <body>
 	<header>
 		<h1>Method Methods</h1>
-		<h2>All Cards</h2>
-		<button id="print">Print</button>
+
+		<!-- <button id="print">Print</button> -->
+		<nav>
+			<a href="/html/">All</a>
+			<a href="/css/" class="Define">Define</a> 
+			<a href="/js/" class="Make">Make</a> 
+			<a href="/jquery/" class="Learn">Learn</a>
+		</nav>
 	</header>
-	<div class="row cards"></div>
+
+
+	<div class="allCards"></div>
+	<div class="expandedCard"></div>
 	<footer></footer>
 	<script src="js/libs/jquery-2.2.0.min.js"></script>
+	<script src="js/libs/jquery-ui.min.js"></script>
 	<script src="js/libs/jquery.parse.js"></script>
 	<script src="js/libs/underscore.js"></script>
+	<script src="js/libs/packery.pkgd.min.js"></script>
+	<script src="js/libs/draggabilly.pkgd.min.js"></script>
 	<script src="js/auth.js"></script>
-	<script src="js/all.js"></script>
+	<script src="js/allcards.js"></script>
 	<script type="text/template" id="card-template">
-		<div class="card">
+		<div class="card <%= category.title %>"  id="<%= objectId %>">
+			<img src="<%= image.url %>">
 			<div class="content">
+				<h4 class="<%= category.title %>"></h4>
 				<h3><%= title %></h3>
-				<p><%= description %></p>
-				<% goals=goals.replace(/\n/g,"</li><li>") %>
-				<ul class="goals"><li><%= goals %></li></ul>
-				
-				<h4 class="green"><%= category.title %></h4>
-			</div>
-			<div class="image">	
-				<img src="<%= image.url %>">
 				<ul class="tags">
 					<% _.each(tags,function(counter){ %>
 						<li><%= counter.title %></li>
 						<%});%>
 				</ul>
+				<p><%= description %></p>
+				<% goals=goals.replace(/\n/g,"</li><li>") %>
+				<ul class="goals"><li><%= goals %></li></ul>
+
+			</div>
+		</div>
+	</script>
+	<script type="text/template" id="expanded-card-template">
+		<div class="card <%= category.title %>">
+			<div class="content">
+				<ul class="tags">
+					<% _.each(tags,function(counter){ %>
+						<li><%= counter.title %></li>
+						<%});%>
+				</ul>
+				<h3><%= title %></h3>
+				<p><%= description %></p>
+				<% goals=goals.replace(/\n/g,"</li><li>") %>
+				<ul class="goals"><li><%= goals %></li></ul>
+				<h4 class="<%= category.title %>"><%= category.title %></h4>
+				
+			</div>
+			<div class="image">	
+				<img src="<%= image.url %>">
+
 			</div>
 		</div>
 	</script>

@@ -1,17 +1,57 @@
 @media screen {
   /* line 2, ../scss/desktop.scss */
   body {
-    background-color: #efefef;
+    background-color: #ffffff;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     padding-bottom: 100px;
   }
 
-  /* line 7, ../scss/desktop.scss */
-  .green {
-    color: #99cc49;
+  /* line 10, ../scss/desktop.scss */
+  a {
+    text-decoration: none;
+    color: black;
   }
 
-  /* line 11, ../scss/desktop.scss */
+  /* line 14, ../scss/desktop.scss */
+  header {
+    margin-top: 40px;
+    width: 1200px;
+    font-size: 18px;
+  }
+  /* line 18, ../scss/desktop.scss */
+  header h1 {
+    font-size: 18px;
+    margin-top: 0;
+    font-weight: normal;
+    float: left;
+    width: 300px;
+  }
+
+  /* line 26, ../scss/desktop.scss */
+  nav {
+    width: 1150px;
+    text-align: right;
+    font-size: 18px;
+  }
+  /* line 30, ../scss/desktop.scss */
+  nav a {
+    margin-top: 0;
+    margin-left: 20px;
+  }
+  /* line 34, ../scss/desktop.scss */
+  nav .Define {
+    color: #99cc49;
+  }
+  /* line 37, ../scss/desktop.scss */
+  nav .Make {
+    color: #f04e55;
+  }
+  /* line 40, ../scss/desktop.scss */
+  nav .Learn {
+    color: #00b9cf;
+  }
+
+  /* line 45, ../scss/desktop.scss */
   #cardForm .droptarget {
     width: 100%;
     background-color: #fff;
@@ -21,98 +61,193 @@
     color: #555;
     box-shadow: 1px 1px 1px 0px rgba(0, 0, 0, 0.2);
   }
-  /* line 19, ../scss/desktop.scss */
+  /* line 53, ../scss/desktop.scss */
   #cardForm .droptarget.dz-drag-hover {
     border: 1px solid #99cc49;
     color: #99cc49;
     background-color: #eef4e5;
   }
-  /* line 24, ../scss/desktop.scss */
+  /* line 58, ../scss/desktop.scss */
   #cardForm .droptarget .dz-preview {
     margin-top: 10px;
     margin-right: 10px;
   }
 
-  /* line 36, ../scss/desktop.scss */
-  .card {
+  /* line 70, ../scss/desktop.scss */
+  .allCards {
+    clear: both;
+    transition: opacity .25s ease-in-out;
+    opacity: 1;
+  }
+  /* line 75, ../scss/desktop.scss */
+  .allCards .card {
+    width: 280px;
+    background-color: #eeeeee;
+  }
+  /* line 80, ../scss/desktop.scss */
+  .allCards .card img {
+    width: 100%;
+  }
+  /* line 85, ../scss/desktop.scss */
+  .allCards .card.Make h3 {
+    color: #f04e55;
+  }
+  /* line 88, ../scss/desktop.scss */
+  .allCards .card.Define h3 {
+    color: #99cc49;
+  }
+  /* line 91, ../scss/desktop.scss */
+  .allCards .card.Learn h3 {
+    color: #00b9cf;
+  }
+  /* line 94, ../scss/desktop.scss */
+  .allCards .card .content {
+    padding: 20px;
+    color: black;
+  }
+  /* line 97, ../scss/desktop.scss */
+  .allCards .card .content h3 {
+    font-size: 18px;
+    font-weight: normal;
+    margin: 0;
+  }
+  /* line 102, ../scss/desktop.scss */
+  .allCards .card .content h4 {
+    font-size: 14px;
+    font-weight: normal;
+    margin: 0;
+    display: none;
+  }
+  /* line 108, ../scss/desktop.scss */
+  .allCards .card .content p {
+    font-size: 14px;
+  }
+  /* line 111, ../scss/desktop.scss */
+  .allCards .card .content .goals {
+    padding-left: 20px;
+    display: none;
+  }
+  /* line 115, ../scss/desktop.scss */
+  .allCards .card .content .tags {
+    display: none;
+    padding: 0;
+  }
+  /* line 118, ../scss/desktop.scss */
+  .allCards .card .content .tags li {
+    font-weight: 500;
+    font-size: 14px;
+    list-style: none;
+    display: inline;
+    color: #797570;
+  }
+  /* line 130, ../scss/desktop.scss */
+  .allCards .card--width2 {
+    width: 50%;
+  }
+
+  /* line 134, ../scss/desktop.scss */
+  .allCards.faded {
+    opacity: 0;
+  }
+
+  /* line 137, ../scss/desktop.scss */
+  .expandedCard {
+    position: absolute;
+    width: 1280px;
+    left: 0;
+    right: 0;
+    top: 60px;
+    padding-top: 20px;
+  }
+  /* line 146, ../scss/desktop.scss */
+  .expandedCard .card {
     width: 1280px;
     height: 720px;
-    background-color: white;
+    background-color: #eeeeee;
   }
-  /* line 40, ../scss/desktop.scss */
-  .card .content {
+  /* line 150, ../scss/desktop.scss */
+  .expandedCard .card.Make h3 {
+    color: #f04e55;
+  }
+  /* line 153, ../scss/desktop.scss */
+  .expandedCard .card.Define h3 {
+    color: #99cc49;
+  }
+  /* line 156, ../scss/desktop.scss */
+  .expandedCard .card.Learn h3 {
+    color: #00b9cf;
+  }
+  /* line 159, ../scss/desktop.scss */
+  .expandedCard .card .content {
     box-sizing: border-box;
     width: 460px;
-    padding-top: 35px;
     padding-left: 25px;
     float: left;
   }
-  /* line 46, ../scss/desktop.scss */
-  .card .content h3 {
-    font-size: 40px;
+  /* line 164, ../scss/desktop.scss */
+  .expandedCard .card .content h3 {
+    font-size: 20px;
     margin-top: 0;
     margin-bottom: 50px;
     font-weight: normal;
   }
-  /* line 52, ../scss/desktop.scss */
-  .card .content h4 {
-    font-size: 24px;
+  /* line 170, ../scss/desktop.scss */
+  .expandedCard .card .content h4 {
+    font-size: 20px;
     margin-top: 0;
     margin-bottom: 14px;
     font-weight: 500;
-    position: absolute;
     bottom: 20px;
+    display: none;
   }
-  /* line 60, ../scss/desktop.scss */
-  .card .content h5 {
+  /* line 178, ../scss/desktop.scss */
+  .expandedCard .card .content h5 {
     font-size: 16px;
     margin-top: 0;
     margin-bottom: 0px;
     font-weight: bold;
     font-weight: 500;
   }
-  /* line 67, ../scss/desktop.scss */
-  .card .content p {
-    font-size: 30px;
+  /* line 185, ../scss/desktop.scss */
+  .expandedCard .card .content p {
+    font-size: 20px;
     margin-top: 0;
     padding-right: 80px;
-    font-weight: lighter;
+    font-weight: normal;
   }
-  /* line 73, ../scss/desktop.scss */
-  .card .content .goals {
+  /* line 191, ../scss/desktop.scss */
+  .expandedCard .card .content .goals {
     margin-top: 34px;
+  }
+  /* line 193, ../scss/desktop.scss */
+  .expandedCard .card .content .goals li {
+    font-weight: 300;
+    font-size: 20px;
+    margin-left: 0;
     padding-right: 20px;
   }
-  /* line 76, ../scss/desktop.scss */
-  .card .content .goals li {
-    color: #898581;
-    font-style: italic;
-    font-weight: 500;
-    font-size: 20px;
+  /* line 200, ../scss/desktop.scss */
+  .expandedCard .card .content .tags {
+    padding-left: 0px;
   }
-  /* line 84, ../scss/desktop.scss */
-  .card .image {
+  /* line 202, ../scss/desktop.scss */
+  .expandedCard .card .content .tags li {
+    font-weight: 500;
+    font-size: 12px;
+    list-style: none;
+    display: inline;
+    color: black;
+    margin-right: 0px;
+    text-transform: uppercase;
+  }
+  /* line 213, ../scss/desktop.scss */
+  .expandedCard .card .image {
     width: 820px;
     float: left;
   }
-  /* line 87, ../scss/desktop.scss */
-  .card .image img {
+  /* line 216, ../scss/desktop.scss */
+  .expandedCard .card .image img {
     width: 820px;
     height: 640px;
-  }
-  /* line 91, ../scss/desktop.scss */
-  .card .image .tags {
-    padding-left: 20px;
-    padding-top: 10px;
-  }
-  /* line 94, ../scss/desktop.scss */
-  .card .image .tags li {
-    font-weight: 500;
-    font-size: 14px;
-    list-style: none;
-    display: inline;
-    color: #797570;
-    margin-right: 50px;
-    text-transform: uppercase;
   }
 }

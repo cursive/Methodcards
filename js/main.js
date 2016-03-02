@@ -5,6 +5,8 @@ var uploadedFileUrl={};
 uploadedFileUrl.name="tfss-9a49a45a-da5a-401a-b0c7-c25b215f25db-yellow.jpg"
 uploadedFileUrl.url="http://files.parsetfss.com/a830439b-7aa4-4898-b70b-8a9a5ef07a84/tfss-9a49a45a-da5a-401a-b0c7-c25b215f25db-yellow.jpg";
 
+
+var examplesBlock=[];
 var exampleFile="http://files.parsetfss.com/a830439b-7aa4-4898-b70b-8a9a5ef07a84/tfss-0c12a959-14cc-40ce-a3c0-f41c9782851f-yellow.jpg";
 var uploadedExampleFileUrl={};
 uploadedExampleFileUrl.name="tfss-9a49a45a-da5a-401a-b0c7-c25b215f25db-yellow.jpg"
@@ -164,7 +166,9 @@ function uploadExample(){
   })
 }
 
-var examplesBlock=[];
+function createExample(){
+  
+}
 
 function newCard(){
   console.log("newCard()")
