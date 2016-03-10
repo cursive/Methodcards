@@ -23,7 +23,9 @@
 
 
 	<div class="allCards"></div>
-	<div class="expandedCard"></div>
+	<div class="expandedCard">
+		<div class="close">Close</div>
+	</div>
 	<footer></footer>
 	<script src="js/libs/jquery-2.2.0.min.js"></script>
 	<script src="js/libs/jquery-ui.min.js"></script>
@@ -52,14 +54,16 @@
 		</div>
 	</script>
 	<script type="text/template" id="expanded-card-template">
+
 		<div class="card <%= category.title %>">
 			<div class="content">
+			
 				<ul class="tags">
 					<% _.each(tags,function(counter){ %>
 						<li><%= counter.title %></li>
 						<%});%>
 				</ul>
-				<h3><%= title %></h3>
+				<h3 contenteditable="true"><%= title %></h3>
 				<p><%= description %></p>
 				<% goals=goals.replace(/\n/g,"</li><li>") %>
 				<ul class="goals"><li><%= goals %></li></ul>

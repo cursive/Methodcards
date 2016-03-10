@@ -1,29 +1,22 @@
 
 //I've but a this so you can submit a card wihtout having to upload a file first
-var file="http://files.parsetfss.com/a830439b-7aa4-4898-b70b-8a9a5ef07a84/tfss-0c12a959-14cc-40ce-a3c0-f41c9782851f-yellow.jpg";
-var uploadedFileUrl={};
-uploadedFileUrl.name="tfss-9a49a45a-da5a-401a-b0c7-c25b215f25db-yellow.jpg"
-uploadedFileUrl.url="http://files.parsetfss.com/a830439b-7aa4-4898-b70b-8a9a5ef07a84/tfss-9a49a45a-da5a-401a-b0c7-c25b215f25db-yellow.jpg";
+var file;
+var fileUrl={};
 
 
-var examplesBlock=[];
-var exampleFile="http://files.parsetfss.com/a830439b-7aa4-4898-b70b-8a9a5ef07a84/tfss-0c12a959-14cc-40ce-a3c0-f41c9782851f-yellow.jpg";
-var uploadedExampleFileUrl={};
-uploadedExampleFileUrl.name="tfss-9a49a45a-da5a-401a-b0c7-c25b215f25db-yellow.jpg"
-uploadedExampleFileUrl.url="http://files.parsetfss.com/a830439b-7aa4-4898-b70b-8a9a5ef07a84/tfss-9a49a45a-da5a-401a-b0c7-c25b215f25db-yellow.jpg";
+var example;
+var exampleUrls=[{},{},{}]
 
 
+fileUrl.name="tfss-9a49a45a-da5a-401a-b0c7-c25b215f25db-yellow.jpg";
+fileUrl.url="http://files.parsetfss.com/a830439b-7aa4-4898-b70b-8a9a5ef07a84/tfss-9a49a45a-da5a-401a-b0c7-c25b215f25db-yellow.jpg";
+
+exampleUrls[0].name=exampleUrls[1].name=exampleUrls[2].name="tfss-9a49a45a-da5a-401a-b0c7-c25b215f25db-yellow.jpg";
+exampleUrls[0].url=exampleUrls[1].url=exampleUrls[2].url="http://files.parsetfss.com/a830439b-7aa4-4898-b70b-8a9a5ef07a84/tfss-9a49a45a-da5a-401a-b0c7-c25b215f25db-yellow.jpg";
 
 
 $(function() {
-  var myDropzone = new Dropzone("#dropzone",
-    { url: "file-upload"}
-    );
-    myDropzone.on("addedfile", function(file) {
-    console.log("added",file, file.name)
-    exampleFile=file
-    uploadExample()
-  });
+
   console.log("init")
     //Authnetic using the jquery parse library
     _authenticate();
@@ -34,24 +27,14 @@ $(function() {
     });
     $('#image').bind("change", function(e) {
       var files = e.target.files || e.dataTransfer.files;
-      file = files[0];
-    });
-    $('#uploadButton').click(function(e) {
-      e.preventDefault();
-      uploadFile()
-    })
-
-    $('#example').bind("change", function(e) {
-      alert(1)
+     // file = files[0];
+     uploadFile(files[0])
+   });
+    $('.example').bind("change", function(e) {
       var files = e.target.files || e.dataTransfer.files;
-      exampleFile = files[0];
+      example = files[0];
+      uploadExample(files[0],$(this).attr('id')-1)
     });
-    $('#uploadExampleButton').click(function(e) {
-      alert(2)
-      e.preventDefault();
-      uploadExample();
-    })
-
   });
 
 /*Authenticate with jquery library*/
@@ -107,24 +90,24 @@ function getTags(){
 }
 
 
-function uploadFile(){
+function uploadFile(thefile){
   console.log("uploadFile()")
-  var serverUrl = 'https://api.parse.com/1/files/' + file.name;
+  var serverUrl = 'https://api.parse.com/1/files/' + thefile.name;
   $.ajax({
     type: "POST",
     beforeSend: function(request) {
       request.setRequestHeader("X-Parse-Application-Id", appID);
       request.setRequestHeader("X-Parse-REST-API-Key", RESTAPIKey);
-      request.setRequestHeader("Content-Type", file.type);
+      request.setRequestHeader("Content-Type", thefile.type);
     },
     url: serverUrl,
-    data: file,
+    data: thefile,
     processData: false,
     contentType: false,
     success: function(data) {
       console.log(data)
-      uploadedFileUrl=data;
-      console.log("File available at: " + uploadedFileUrl.url);
+      fileUrl=data;
+      console.log("File available at: " + fileUrl.url);
     },
     error: function(data) {
       var obj = jQuery.parseJSON(data);
@@ -134,30 +117,24 @@ function uploadFile(){
 }
 
 
-
-function uploadExample(){
-  console.log("uploadExample()")
-  var serverUrl = 'https://api.parse.com/1/files/' + exampleFile.name;
+function uploadExample(thefile,exampleNumber){
+  console.log("uploadExample()",exampleNumber)
+  var serverUrl = 'https://api.parse.com/1/files/' + thefile.name;
   $.ajax({
     type: "POST",
     beforeSend: function(request) {
       request.setRequestHeader("X-Parse-Application-Id", appID);
       request.setRequestHeader("X-Parse-REST-API-Key", RESTAPIKey);
-      request.setRequestHeader("Content-Type", file.type);
+      request.setRequestHeader("Content-Type", thefile.type);
     },
     url: serverUrl,
-    data: exampleFile,
+    data: thefile,
     processData: false,
     contentType: false,
     success: function(data) {
-      console.log("example:",data)
-      uploadedExampleFileUrl=data;
-      console.log("Example File available at: " + uploadedExampleFileUrl.url);
-      examplesBlock.push({
-        __type: 'Pointer',
-        className: 'Example',
-        objectId: uploadedExampleFileUrl
-      })
+      console.log(data)
+      exampleUrls[exampleNumber]=data;
+      console.log("File available at: " + exampleUrls[exampleNumber].url);
     },
     error: function(data) {
       var obj = jQuery.parseJSON(data);
@@ -166,9 +143,6 @@ function uploadExample(){
   })
 }
 
-function createExample(){
-  
-}
 
 function newCard(){
   console.log("newCard()")
@@ -190,14 +164,83 @@ function newCard(){
       "__type":"Pointer",
       "className":"Category",
       "objectId":$("#category","#cardForm").val()
-    },tags:tagsBlock,
-    examples:examplesBlock,
+    },
+    tags:tagsBlock,
     image: {
      "__type": "File",
-     "name": uploadedFileUrl.name,
-     "url": uploadedFileUrl.url
+     "name": fileUrl.name,
+     "url": fileUrl.url
+   },
+   caption1:$("#caption1","#cardForm").val(),
+   example1: {
+     "__type": "File",
+     "name": exampleUrls[0].name,
+     "url": exampleUrls[0].url
+   },
+   caption2:$("#caption2","#cardForm").val(),
+   example2: {
+     "__type": "File",
+     "name": exampleUrls[1].name,
+     "url": exampleUrls[1].url
+   },
+   caption3:$("#caption3","#cardForm").val(),
+   example3: {
+     "__type": "File",
+     "name": exampleUrls[2].name,
+     "url": exampleUrls[2].url
    }
+ }, function(json) { 
+  console.log("Card Created",json);
+});
+}
 
+
+function newCard(){
+  console.log("newCard()")
+  var tagsBlock = [];
+  
+  $('#tags :checked').each(function() {
+    tagsBlock.push({
+      __type: 'Pointer',
+      className: 'Tag',
+      objectId: $(this).val()
+    })
+
+  });
+  $.parse.post('Card', { 
+    title: $("#title","#cardForm").val(),
+    description: $("#description","#cardForm").val(),
+    goals: $("#goals","#cardForm").val(),
+    tips: $("#tips","#cardForm").val(),
+    category:{
+      "__type":"Pointer",
+      "className":"Category",
+      "objectId":$("#category","#cardForm").val()
+    },
+    tags:tagsBlock,
+    image: {
+     "__type": "File",
+     "name": fileUrl.name,
+     "url": fileUrl.url
+   },
+   caption1:$("#caption1","#cardForm").val(),
+   example1: {
+     "__type": "File",
+     "name": exampleUrls[0].name,
+     "url": exampleUrls[0].url
+   },
+   caption2:$("#caption1","#cardForm").val(),
+   example2: {
+     "__type": "File",
+     "name": exampleUrls[1].name,
+     "url": exampleUrls[1].url
+   },
+   caption3:$("#caption1","#cardForm").val(),
+   example3: {
+     "__type": "File",
+     "name": exampleUrls[2].name,
+     "url": exampleUrls[2].url
+   }
  }, function(json) { 
   console.log("Card Created",json);
 });
@@ -311,5 +354,8 @@ function createCard(){
     });
 }
 */
+
+
+
 
 

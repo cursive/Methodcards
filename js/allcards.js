@@ -7,6 +7,21 @@ $(function() {
       window.print();
     })
 
+    $('body').on('focus', '[contenteditable]', function() {
+      var $this = $(this);
+      $this.data('before', $this.html());
+      return $this;
+    }).on('blur keyup paste input', '[contenteditable]', function() {
+      var $this = $(this);
+      if ($this.data('before') !== $this.html()) {
+        $this.data('before', $this.html());
+        $this.trigger('change');
+      }
+      return $this;
+    });
+
+
+
   });
 
 /*Authenticate with jquery library*/
@@ -38,7 +53,7 @@ $.ajax({
     _.each(results.results,function(result){
      $(".allCards").append(cardTemplate(result))
    })
-    setTimeout(initPackery,2000)
+    setTimeout(initPackery,200)
   },        
   error: function(error) {
     console.log("Error:",error)
@@ -60,10 +75,18 @@ function getCard(id){
       console.log("getCard():",results)
       console.log("ds")
       $(".expandedCard").append(cardTemplate(results))
+      fieldListeners();
     },        
     error: function(error) {
       console.log("Error:",error)
     }
+  });
+}
+
+function fieldListeners(){
+  console.log("fieldListeners")
+  $( "div" ).blur(function() {
+    alert( "Handler for .blur() called." );
   });
 }
 
@@ -97,9 +120,12 @@ $(".card").click(function(){
 
   expandCard($(this).attr('id'))
 })
-$(".expandedCard").click(function(){
+$(".close").click(function(){
+
   closeCard()
 })
 }
+
+
 
 
